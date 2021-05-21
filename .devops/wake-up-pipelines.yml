@@ -6,9 +6,9 @@ trigger: none
 #   vmImage: '$(VM_IMAGE_AGENT)'
 
 pool:
-  name: Default
-  demands:
-    - agent.name -equals $(VM_IMAGE_AGENT)
+  name: cstar-dev-linux
+  # demands:
+  #   - agent.name -equals $(VM_IMAGE_AGENT)
 
 stages:
   - stage: HelloWorld
