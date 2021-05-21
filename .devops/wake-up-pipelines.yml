@@ -1,14 +1,7 @@
 trigger: none
 
-# Execute agents (jobs) on latest Ubuntu version.
-# To change OS for a specific, ovverride "pool" attribute inside the job definition
-# pool:
-#   vmImage: '$(VM_IMAGE_AGENT)'
-
 pool:
-  name: cstar-dev-linux
-  # demands:
-  #   - agent.name -equals $(VM_IMAGE_AGENT)
+  name: $(VM_IMAGE_AGENT)
 
 stages:
   - stage: HelloWorld
