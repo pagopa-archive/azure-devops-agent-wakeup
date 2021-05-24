@@ -14,3 +14,19 @@ stages:
           - script: |
               echo "Hello World!"
             displayName: 'hello'
+
+  - stage: Deploy
+    dependsOn: HelloWorld
+    jobs:
+      - job: deploy_k8s
+        steps:
+          - task: KubernetesManifest@0
+            displayName: Deploy
+            inputs:
+              kubernetesServiceConnection: AKS-SERVICE-CONN
+              namespace: default
+              manifests: |
+                manifests/deployment-dev.yml
+                manifests/service.yml
+              containers: |
+                nginx:latest
